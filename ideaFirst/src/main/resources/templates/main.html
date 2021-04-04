@@ -1,0 +1,20 @@
+<html xmlns:th="http://wwww.thymeleaf.org">
+<header>
+
+    <link th:href="@{/css/css.css}" type="text/css">
+    <script type="text/javascript" th:src="@{/js/c.js}"></script>
+</header>
+
+
+<body>
+<table>
+<tr th:each="emp:${emplist}">
+<td th:text="${emp.username}">用户名</td>
+    <td th:text="${emp.password}">密码</td>
+    <td th:text="${emp.gender=1?'男':'女'}">性别</td>
+    <td th:text="${#dates.format(emp.birthday),'yyyy-MM-dd'}">生日</td>
+    <td th:href="@{/getById(empId=${emp.pid})}"></td>
+</tr>
+</table>
+</body>
+</html>
